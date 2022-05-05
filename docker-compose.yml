@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  api:
+    container_name: api
+    build: .
+    command: sh -c "npm run migrate && node index.js"
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    image: postgres:9.6
+    restart: always
+    environment:
+      POSTGRES_HOST: 127.0.0.1
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: potis
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      
+volumes: 
+  pgdata:
