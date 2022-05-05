@@ -1,9 +1,3 @@
-# API Rest Template
-
-Este repositorio es un template base de una API Rest desarrollada con `knex`, `jwt`, `express`, `dotenv`, `cors`, `morgan` y `helmet`.
-
-La misma posee una API de autentificación con JWT y otra de usuarios.
-
 # Primera configuración
 
 Se debe crear el archivo `.env` con el siguiente formato.
